@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import Layout from './hoc/Layout/Layout';
+import Covid from './components/Covid/Covid';
+import Medicstore from './containers/Medicstore/Medicstore';
 function App() {
+  let routes = (
+    <Switch>
+      {/* <Route path='/tvshows' exact component={TvShows} />
+      <Route path='/movies' exact component={Movies} />
+      <Route path='/' exact component={NetflixMain} />
+      <Route path='/referfriends' exact component={GiftPage} /> */}
+      <Route path='/covid' exact component={Covid} />
+      <Route path='/' exact component={Medicstore} />
+      <Redirect to='/' />
+    </Switch>
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Layout>
+        {routes}
+      </Layout>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

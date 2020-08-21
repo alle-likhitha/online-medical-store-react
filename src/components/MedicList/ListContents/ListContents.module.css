@@ -1,0 +1,38 @@
+.ListContents{
+    width: 255px;
+    height: 332px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 20px 20px 40px 20px;
+    text-align: center;
+    /* overflow: hidden; */
+    /* transition: 0.5 all ease-in-out; */
+    overflow: visible;
+    background-color: #5eaaa8;
+}
+
+
+.Image{
+    height: 100%;
+    width: 100%;
+    transition: 0.5s all ;
+    /* background-color: black; */
+    /* background-image: url("../../../assets/images/mediclogo.png"); */
+    background-size: cover;
+}
+
+.ListContents:hover .Image,
+.ListContents:focus .Image{
+    transform: scale(1.1);
+}
+
+.Price{
+  width: 245px;
+  height: 54px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}

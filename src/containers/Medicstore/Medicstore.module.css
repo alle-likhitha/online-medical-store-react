@@ -1,0 +1,9 @@
+.Medicstore{
+    height: 100%;
+    width: 100%;
+    margin-top: 100px;
+    /* background: url(../../assets/images/medicines.jpg); */
+    background-color: cadetblue;
+    overflow: scroll;
+    justify-content: space-between;
+}
