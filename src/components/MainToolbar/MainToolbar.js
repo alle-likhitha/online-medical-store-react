@@ -8,6 +8,7 @@ import logo from '../../assets/images/lala.png'
 // import insta2 from '../../assets/images/insta2.png'
 import {FiShoppingCart} from 'react-icons/fi';
 import Toolbar from '../Toolbar/Toolbar';
+import Button from '../../ui/Button/Button';
 
 const MainToolbar = props =>{
     return(
@@ -19,11 +20,12 @@ const MainToolbar = props =>{
             </Link>
             </div>
             <h1>Medic Store</h1>
-            <div className={classes.Logo} >
+            <div className={classes.LogoM} >
             {/* <img style={{height : '50px'}}src={insta2} alt='insta'/> */}
             <FiShoppingCart />
             <h3 style={{padding:'10px'}}>Cart</h3>
-            <h3>Sign up</h3>
+            <Button><h3>LogOut</h3>
+            </Button>
             </div>
             
             

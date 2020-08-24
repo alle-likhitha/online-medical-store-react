@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ListContents.module.css';
 import mediclogo from '../../../assets/images/mediclogo.png'
+import Button from '../../../ui/ButtonList/ButtonList';
 const ListContents = props =>{
     return(
         <div className={classes.ListContents}>
@@ -9,9 +10,13 @@ const ListContents = props =>{
             <div >
                 {/* <span>Tokyo</span> */}
                 <img className={classes.Image} src={mediclogo} alt='tokyoGhoul'style={{height:'70%', width:'100%'}}/>
+                
                 <div className={classes.Price}>
-                <p>name lkjbkd</p>
+                <label>Name:Tablet</label>
+                <label>Price:00</label>
+                <Button>Add</Button>
                 </div>
+                
             </div>
             
         </div>

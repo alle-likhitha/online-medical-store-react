@@ -1,10 +1,10 @@
 .ListContents{
     width: 255px;
-    height: 332px;
+    height: 350px;
     cursor: pointer;
     padding: 5px;
     margin: 20px 20px 40px 20px;
-    text-align: center;
+    /* text-align: center; */
     /* overflow: hidden; */
     /* transition: 0.5 all ease-in-out; */
     overflow: visible;
@@ -29,10 +29,11 @@
 .Price{
   width: 245px;
   height: 54px;
-  overflow: hidden;
-  font-family: "Inter", sans-serif;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 1.2;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+}
+label{
+    display: flex;
+    flex-flow: row;
 }

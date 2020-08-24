@@ -15,11 +15,11 @@ const Toolbar = props =>{
                 <p>Skin Care</p> */}
                 <NavItem link='/'>Home</NavItem>
                 <NavItem link='/covid'>Corona Virus</NavItem>
-                <NavItem link='/'>Cold & Cough</NavItem>
-                <NavItem link='/'>Essential Supplments</NavItem>
-                <NavItem link='/'>Immunity Boosters</NavItem>
-                <NavItem link='/'>General Medicies</NavItem>
-                <NavItem link='/'>Skin Care</NavItem>
+                <NavItem link='/coldcough'>Cold & Cough</NavItem>
+                <NavItem link='/essential'>Essential Supplments</NavItem>
+                <NavItem link='/immunity'>Immunity Boosters</NavItem>
+                <NavItem link='/general'>General Medicies</NavItem>
+                <NavItem link='/skincare'>Skin Care</NavItem>
                 </div>
                 
             </Aux>
