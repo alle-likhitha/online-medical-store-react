@@ -27,3 +27,9 @@ export const removequantity = (id)=>{
         id : id
     }
 }
+
+export const purchaseMedicStart=()=>{
+    return {
+        type:actionTypes.PURCHASE_MEDIC_START
+    }
+}

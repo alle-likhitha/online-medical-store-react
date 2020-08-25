@@ -18,12 +18,12 @@
 
 .active{
     color: gray;
-    /* font-weight: bold; */
+    font-weight: bold;
 }
 
 .NavItem a:hover,
 .NavItem a:active,
 .NavItem a.active {
-    /* color: gray */
-    /* font-weight: bold; */
+    color: rgb(35, 34, 90) ;
+    font-weight: 900;
 }

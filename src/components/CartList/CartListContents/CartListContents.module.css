@@ -1,0 +1,53 @@
+.CartListContents{
+    width: 300px;
+    height: 150px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 5px 5px 5px;
+    /* text-align: center; */
+    /* overflow: hidden; */
+    /* transition: 0.5 all ease-in-out; */
+    overflow: visible;
+    background-color: #5eaaa8;
+}
+
+.InnerDiv{
+
+    display: flex;
+    flex-direction: row;
+}
+.CartImage{
+    height: 100%;
+    width: 40%;
+    transition: 0.5s all ;
+    align-content: center;
+    align-items: center;
+    /* background-color: black; */
+    /* background-image: url("../../../assets/images/mediclogo.png"); */
+    background-size: cover;
+    overflow: hidden;
+}
+
+.CartListContents:hover .Image,
+.CartListContents:focus .Image{
+    transform: scale(1.1);
+}
+
+.CartPrice{
+  width: 60px;
+  height: 20px;
+  /* padding-top: 10px; */
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.Cartlabel{
+    width: 150px;
+    display: flex;
+    flex-flow: column;
+    font-size: 14px;
+    /* font-style: oblique;
+    font-weight: bold; */
+}

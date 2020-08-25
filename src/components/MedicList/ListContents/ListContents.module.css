@@ -1,6 +1,6 @@
 .ListContents{
     width: 255px;
-    height: 350px;
+    height: 390px;
     cursor: pointer;
     padding: 5px;
     margin: 20px 20px 40px 20px;
@@ -13,12 +13,13 @@
 
 
 .Image{
-    height: 100%;
+    height: 60%;
     width: 100%;
     transition: 0.5s all ;
     /* background-color: black; */
     /* background-image: url("../../../assets/images/mediclogo.png"); */
     background-size: cover;
+    overflow: hidden;
 }
 
 .ListContents:hover .Image,
@@ -29,11 +30,14 @@
 .Price{
   width: 245px;
   height: 54px;
+  padding-top: 10px;
   /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 }
-label{
+.Mlabel{
     display: flex;
     flex-flow: row;
+    font-style: oblique;
+    font-weight: bold;
 }
