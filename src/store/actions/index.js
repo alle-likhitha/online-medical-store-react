@@ -5,18 +5,20 @@ export {
     // authCheckState
 } from './auth';
 
-export {
-    addmedicine,
-    removemedicine,
-    addquantity,
-    removequantity,
-    purchaseMedicStart
-} from './cart'
+// export {
+//     addmedicine,
+//     removemedicine,
+//     addquantity,
+//     removequantity,
+//     purchaseMedicStart
+// } from './cart'
 
 export {
     fetchMedicine,
     fetchMedicSuccess,
     fetchMedicStart,
     fetchMedicFail,
-    addingmed
+    addingmed,
+    purchaseMedicStart,
+    removingmed
 }from './medicine'

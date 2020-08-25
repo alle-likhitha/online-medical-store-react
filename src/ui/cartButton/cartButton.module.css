@@ -1,38 +1,50 @@
-.Button {
+.cartButton {
     background-color: transparent;
     border: none;
     color: black;
     outline: none;
     cursor: pointer;
     font: inherit;
-    padding: 10px;
-    margin: 10px;
+    width: 60px;
+    /* padding: 10px; */
+    /* margin: 10px; */
+    font-size: small;
     font-weight: bold;
     text-align: center;
+    background-color: #e9fffb;
+    box-shadow: 0 1px 1px gray;
+    border: 1px solid #eee;
+    margin-left: 20%;
+    border-radius: 12px;
+    /* padding: 10px; */
 }
 
-.Button:first-of-type {
+.cartButton:first-of-type {
     margin-left: 0;
     padding-left: 0;
 }
-.Button:disabled{
+.cartButton:disabled{
     color: #ccc;
     cursor: not-allowed;
 }
 
 .Success {
     color: #5C9210;
+    /* background-color: #5C9210; */
 }
 
 .Danger {
     color: #944317;
+    /* background-color: #944317; */
 }
 
-.Button:hover{
+.cartButton:hover{
     /* margin-left: 60%; */
     background-color: gray ;
+    color: white;
 }
-.Button:active{
+.cartButton:active{
+    color: white;
     background-color: gray ;
     box-shadow: 0 5px #666;
     transform: translateY(4px);

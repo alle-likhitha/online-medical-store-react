@@ -14,18 +14,27 @@
     box-shadow: 0 2px 2px gray;
     border: 2px solid #eee;
     margin-left: 60%;
+    border-radius: 12px;
     /* padding: 10px; */
 }
 
-.Button:first-of-type {
+.ButtonList:first-of-type {
     margin-left: 0;
     padding-left: 0;
 }
-.Button:disabled{
+.ButtonList:disabled{
     color: #ccc;
     cursor: not-allowed;
 }
-
+.ButtonList:hover{
+    /* margin-left: 60%; */
+    background-color: gray ;
+}
+.ButtonList:active{
+    background-color: gray ;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 .Success {
     color: #5C9210;
 }

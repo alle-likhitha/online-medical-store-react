@@ -30,7 +30,17 @@ export const addingmed = (data)=>{
         data:data
     }
 }
-
+export const removingmed = (id)=>{
+    return{
+        type:actionTypes.REMOVE_MEDICINE_MED,
+        id : id
+    }
+}
+export const purchaseMedicStart=()=>{
+    return {
+        type:actionTypes.PURCHASE_MEDIC_START
+    }
+}
 
 export const fetchMedicine = (category) => {
     return dispatch => {

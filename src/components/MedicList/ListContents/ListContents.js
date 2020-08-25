@@ -3,7 +3,9 @@ import classes from './ListContents.module.css';
 // import mediclogo from '../../../assets/images/mediclogo.png'
 import Button from '../../../ui/ButtonList/ButtonList';
 const ListContents = props =>{
+
     return(
+
         <div className={classes.ListContents} key={props.id}>
             {/* <p>hiii</p>
             <h1>1</h1> */}

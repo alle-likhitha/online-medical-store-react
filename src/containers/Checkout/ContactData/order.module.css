@@ -1,0 +1,19 @@
+.Order{
+    width: 80%;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    margin-top: 300px;
+    box-shadow: 0 2px 3px #eee;
+    padding: 10px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    color: white;
+    background-color: #0b3a46;
+    box-sizing: border-box;
+}
+.Div{
+    align-items: center;
+}

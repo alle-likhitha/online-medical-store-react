@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './CartListContents.module.css';
 // import mediclogo from '../../../assets/images/mediclogo.png'
-import Button from '../../../ui/ButtonList/ButtonList';
+import ButtonCart from '../../../ui/cartButton/cartButton';
 // import { FiAlignCenter } from 'react-icons/fi';
 const ListContents = props =>{
     return(
@@ -19,7 +19,11 @@ const ListContents = props =>{
                 <label className={classes.Cartlabel} style={{fontWeight:'bold'}}>Name:  {props.name}</label>
                 <label className={classes.Cartlabel}>Price:  {props.price} Rs</label>
                 <label className={classes.Cartlabel}>Quantity:  {props.quantity}</label>
-                <Button  clicked={props.clicked} style={{height:'10px', width:'15px'}}>Add</Button>
+                <div style={{display:'flex', flexDirection:'row',marginLeft:'40px'}}>
+                <ButtonCart btntype='Success' clicked={props.clicked} >Add</ButtonCart>
+                <ButtonCart btntype='Danger' clicked={props.remove} >Remove</ButtonCart>
+                </div>
+                
                 </div>
                 
             </div>

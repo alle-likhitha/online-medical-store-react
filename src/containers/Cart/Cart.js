@@ -12,7 +12,8 @@ class Cart extends Component{
         let cartlist = <h2>Your Cart is Empty. Please Add Medicines!</h2>
         if (this.props.added.length !== 0){
             cartlist = <Aux>
-                <CartList key={'cart'} data = {this.props.added} onAddClick = {this.props.onAddList}/>
+                <CartList key={'cart'} data = {this.props.added} onAddClick = {this.props.onAddList}
+                onRemoveClick = {this.props.onRemove}/>
                 <br></br>
                 <h2>Total Price = {this.props.total}</h2>
                 <div className= {classes.NavItem2}>
@@ -42,7 +43,8 @@ const mapStateToProps = state => {
 const mapDispatchtoProps=(dispatch)=>{
     return{
         // onAddList :(id) =>dispatch(actions.adding(id))
-        onAddList :(data) =>dispatch(actions.addingmed(data))
+        onAddList :(data) =>dispatch(actions.addingmed(data)),
+        onRemove :(data) =>dispatch(actions.removingmed(data))
     }
     }
 

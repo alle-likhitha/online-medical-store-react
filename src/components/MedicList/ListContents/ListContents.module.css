@@ -2,12 +2,13 @@
     width: 255px;
     height: 390px;
     cursor: pointer;
-    padding: 5px;
+    padding: 7px;
     margin: 20px 20px 40px 20px;
     /* text-align: center; */
     /* overflow: hidden; */
     /* transition: 0.5 all ease-in-out; */
     overflow: visible;
+    border-radius: 10px;
     background-color: #5eaaa8;
 }
 

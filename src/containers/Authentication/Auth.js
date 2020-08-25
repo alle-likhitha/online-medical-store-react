@@ -8,7 +8,9 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import {updateObject} from '../../hoc/Shared/utility';
 import Aux from '../../hoc/Aux/Aux';
-
+import Phone from '../../assets/images/Phone.png';
+import Mail from '../../assets/images/Mail.png';
+import Insta from '../../assets/images/Insta.png';
 // import {updateObject, validityCheckHandler} from '../../hoc/Shared/utility';
 import { validityCheckHandler } from '../../hoc/Shared/utility';
 import * as actions from '../../store/actions/index';
@@ -137,7 +139,8 @@ class Auth extends Component{
         }
 
         return (
-            <div className = {classes.Auth}>
+            <div className={classes.Auth123}>
+                <div className = {classes.Auth}>
                 <div className={classes.Inner}>
                 {authRedirect}
                 {errorMessage}
@@ -154,7 +157,25 @@ class Auth extends Component{
                     clicked={this.switchAuthModeHandler}
                     btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>
                 </div>
+
             </div>
+            <div className={classes.Contactus}>
+                <h2>Contact us</h2>
+                    <div className={classes.DivContact}>
+                    <div className={classes.Phone}>
+                    <img src={Phone} style={{height:'60px',width:'60px'}} alt='Phone Icon'/>
+                    <h5>Talk to us:+91 900*****99</h5></div>
+                    <div className={classes.Phone}>
+                    <img src={Mail} style={{height:'60px',width:'60px'}} alt='Mail Icon'/>
+                    <h5>MailId: medicstore.india@gmail.com</h5>
+                    </div>
+                    <div className={classes.Phone}>
+                     <img src={Insta} style={{height:'60px',width:'60px'}} alt='Insta Icon'/>
+                    <h5>Follow us on: medic_store</h5></div>
+                     </div>
+                     </div>
+            </div>
+            
         );
     }
 }

@@ -35,6 +35,21 @@ const addingmed = (state,action) => {
    }
 };
 
+const removingmed = (state , action)=>{
+    const remove = state.addedItems.find(item=> item._id === action._id)
+    if (remove.quantity === 1){
+        let new_items = state.addedItems.filter(item=>item._id !== action._id)
+        let newTotal = state.total - remove.Price
+        return updateObject(state, {addedItems: new_items, total: newTotal.toFixed(2) })
+    }
+    else{
+        let newitem = state.addedItems.filter(item=> action._id !== item._id)
+
+    let newtot = state.total - (remove.Price * remove.quantity)
+    return updateObject(state, {addedItems: newitem, total: newtot.toFixed(2)})
+    }
+    
+}
 const fetchMedicStart = ( state, action ) => {
     return updateObject( state, { error: null, loading: true } );
 };
@@ -55,15 +70,19 @@ const fetchMedicSuccess = (state, action) => {
         loading: false
      } );
 };
-
+const purchaseMedicStart = (state,action)=>{
+    return updateObject(state)
+}
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.MEDIC_FETCH_START: return fetchMedicStart(state, action);
         case actionTypes.ADD_MEDICINE_MED: return addingmed(state,action)
+        case actionTypes.REMOVE_MEDICINE_MED: return removingmed(state,action)
         // case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.MEDICINE_FETCH_FAIL: return authFail(state, action);
         case actionTypes.MEDICINE_FETCH_SUCCESS: return fetchMedicSuccess(state, action);
+        case actionTypes.PURCHASE_MEDIC_START: return purchaseMedicStart(state,action)
         // case actionTypes.SET_AUTH_REDIRECT_PATH: return setAuthRedirectPath(state,action);
         default:
             return state;

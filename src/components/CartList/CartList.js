@@ -10,6 +10,7 @@ console.log(Array.isArray(props.data))
     const listlist = props.data.map(item =>(
         <ListContents key={item.id} id = {item._id} name = {item.Name} price = {item.Price} img={item.Image}
          clicked = {()=>props.onAddClick(item)}
+         remove = {()=>props.onRemoveClick(item)}
          quantity={item.quantity}/>
     ))
     // console.log()

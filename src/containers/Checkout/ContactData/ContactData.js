@@ -173,7 +173,7 @@ class ContactData extends Component{
         }
         let form =(
             // <form onSubmit={this.orderHandler}>
-            <form>
+            <form className={classes.Form}>
                     {/* <Input elementType='...' elementConfig='..'  value='..'></Input> */}
                     
                     {formeleArray.map(formelement=>(

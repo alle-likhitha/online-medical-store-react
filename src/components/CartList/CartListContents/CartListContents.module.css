@@ -9,6 +9,7 @@
     /* transition: 0.5 all ease-in-out; */
     overflow: visible;
     background-color: #5eaaa8;
+    border-radius: 10px;
 }
 
 .InnerDiv{

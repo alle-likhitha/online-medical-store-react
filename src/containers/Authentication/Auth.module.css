@@ -1,18 +1,28 @@
 .Auth{
-    margin:20px auto;
+    margin:0px auto;
     width: 100%;
     display: block;
+   
     text-align: center;
     
 
+}
+.Auth123{
+    background-image: url('../../assets/images/medicines.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /* height: 1000px; */
+    width: 100%;
+    top: 0;
 }
 
 .Inner{
     height: 600px;
     /* width: auto; */
-    margin-top: 200px;
+    border-top: 100px;
     /* background-image: linear-gradient(to right, rgb(28, 195, 236) ,#ffffff ); */
-    padding : 20px;
+    /* padding : 20px; */
     align-content: center;
     background-color: #a3d2ca;
     box-shadow: 0 2px 3px gray;
@@ -50,4 +60,27 @@ form{
     .Auth{
         width: 500px;
     }
+}
+
+.Contactus{
+    width: 100%;
+    height: 270x;
+    overflow: visible;
+    text-align: center;
+    background-color: rgba(2, 36, 59, 0.5);
+}
+.Phone{
+width: 100px;
+height: 200px;
+overflow: visible;
+display: flex;
+flex-direction: column;
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+}
+.DivContact{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
 }
