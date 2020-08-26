@@ -43,6 +43,7 @@ export const purchaseMedicStart=()=>{
 }
 
 export const purchaseMedicSuccess = ( id, orderData ) => {
+    
     return {
         type: actionTypes.PURCHASE_MEDIC_SUCCESS,
         orderId: id,
@@ -65,6 +66,7 @@ export const purchaseMedic = ( orderData,userid) => {
         axios.post( 'http://localhost:9000/address/add-address?user-email=' + userid, orderData )
             .then( response => {
                 console.log(response)
+                
                 dispatch( purchaseMedicSuccess( response.data.orderid, orderData ) );
             } )
             .catch( error => {
