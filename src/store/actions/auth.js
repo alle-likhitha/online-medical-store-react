@@ -59,7 +59,7 @@ export const auth = (email, password, isSignup) => {
                 //reponse => error ->  
                 console.log(response)
                 if (response.data.data){
-                    dispatch(setAuthRedirectPath('/med'))
+                    dispatch(setAuthRedirectPath('/med', email))
                 }else{
                     dispatch(authFail(response.data.error));
                 }
@@ -70,10 +70,18 @@ export const auth = (email, password, isSignup) => {
     };
 };
 
-export const setAuthRedirectPath = (path) => {
+export const alle =()=>{
+    return{
+        type: actionTypes.ALLE
+    }
+}
+
+export const setAuthRedirectPath = (path,email) => {
     return {
         type: actionTypes.SET_AUTH_REDIRECT_PATH,
-        path: path
+        path: path,
+        userid: email
+        
     };
 };
 

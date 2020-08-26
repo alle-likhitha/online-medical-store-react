@@ -9,10 +9,12 @@ const initialState = {
     error: null,
     total:0,
     loading: false,
+    orders:[],
+    purchased: false
 };
 const addingmed = (state,action) => {
-    console.log('addedlist',state.addedItems)
-    console.log(action.data)
+    // console.log('addedlist',state.addedItems)
+    // console.log(action.data)
     // console.log(state.data)
     const additem = state.data.find(item=> item._id === action.data._id)
     // const additem = action.data
@@ -22,31 +24,33 @@ const addingmed = (state,action) => {
     if(existed_item)
     {
         additem.quantity += 1 
-        return updateObject(state, {total: state.total + additem.Price })
+        return updateObject(state, {total: state.total + additem.Price ,purchased:false})
    }
    else{
         additem.quantity = 1;
        //calculating the total
         let newTotal = state.total + additem.Price 
         console.log(newTotal)
-        return updateObject(state, { addedItems: [...state.addedItems, additem], total : newTotal})
+        return updateObject(state, { addedItems: [...state.addedItems, additem], total : newTotal, purchased:false})
 
        
    }
 };
 
 const removingmed = (state , action)=>{
-    const remove = state.addedItems.find(item=> item._id === action._id)
+    // console.log('addedlist',state.addedItems)
+    // console.log(action.data)
+    const remove = state.addedItems.find(item=> item._id === action.data._id)
     if (remove.quantity === 1){
-        let new_items = state.addedItems.filter(item=>item._id !== action._id)
-        let newTotal = state.total - remove.Price
-        return updateObject(state, {addedItems: new_items, total: newTotal.toFixed(2) })
+        let new_items = state.addedItems.filter(item=>item._id !== action.data._id)
+        let newTotal = state.total - remove.Price.toFixed(2)
+        return updateObject(state, {addedItems: new_items, total: newTotal ,purchased:false})
     }
     else{
-        let newitem = state.addedItems.filter(item=> action._id !== item._id)
-
-    let newtot = state.total - (remove.Price * remove.quantity)
-    return updateObject(state, {addedItems: newitem, total: newtot.toFixed(2)})
+        // let newitem = state.addedItems.filter(item=> action._id !== item._id)
+    remove.quantity -= 1 
+    let newtot = state.total - remove.Price.toFixed(2)
+    return updateObject(state, { total: newtot, purchased:false})
     }
     
 }
@@ -70,11 +74,32 @@ const fetchMedicSuccess = (state, action) => {
         loading: false
      } );
 };
-const purchaseMedicStart = (state,action)=>{
-    return updateObject(state)
-}
+
+const purchaseMedicStart = ( state, action ) => {
+    return updateObject( state, { loading: true } );
+};
+
+const purchaseMedicSuccess = ( state, action ) => {
+    const newOrder = updateObject( action.orderData, { id: action.orderId } );
+    alert('ORDER SUCCESS')
+    return updateObject( state, {
+        loading: false,
+        purchased: true,
+        addedItems: [],
+        orders: state.orders.concat( newOrder )
+    } );
+};
+
+const purchaseMedicFail = ( state, action ) => {
+    return updateObject( state, { loading: false } );
+};
 
 const reducer = ( state = initialState, action ) => {
+    // debugger
+    console.log(action.type)
+    console.log(state)
+    console.log("-=-==med--=-=")
+    
     switch ( action.type ) {
         case actionTypes.MEDIC_FETCH_START: return fetchMedicStart(state, action);
         case actionTypes.ADD_MEDICINE_MED: return addingmed(state,action)
@@ -83,6 +108,8 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.MEDICINE_FETCH_FAIL: return authFail(state, action);
         case actionTypes.MEDICINE_FETCH_SUCCESS: return fetchMedicSuccess(state, action);
         case actionTypes.PURCHASE_MEDIC_START: return purchaseMedicStart(state,action)
+        case actionTypes.PURCHASE_MEDIC_SUCCESS: return purchaseMedicSuccess(state,action)
+        case actionTypes.PURCHASE_MEDIC_FAIL: return purchaseMedicFail(state,action)
         // case actionTypes.SET_AUTH_REDIRECT_PATH: return setAuthRedirectPath(state,action);
         default:
             return state;

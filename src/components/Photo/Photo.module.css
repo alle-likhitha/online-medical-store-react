@@ -21,17 +21,18 @@
 .About{
     height: 230px;
     background-color: #5eaaa8 ;
+    text-align: center;
 }
 
 .Contactus{
         width: 100%;
         height: 290px;
         overflow: visible;
-        background-color: rgba(2, 36, 59, 0.5);
+        background-color: #056676;
         text-align: center;
 }
 .Phone{
-    width: 150px;
+    width: 100px;
     height: 100px;
     overflow: visible;
     display: flex;
@@ -39,6 +40,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    font-weight: bold;
 }
 .DivContact{
     display: flex;

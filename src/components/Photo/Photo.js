@@ -15,21 +15,23 @@ const Photo = props =>{
             </div>
         </div>
         <div className={classes.About}>
-        <h2>About</h2>
+        <h2>About Us</h2>
+        <h3>Health Comes Home</h3>
+        <p style={{height:'70%', width:'80%',marginLeft:'140px',fontSize:'20px'}}>MedicStore is a holistic healthcare company that aims to make healthcare accessible and affordable in the country. In order to streamline the functioning of the health industry, we have brought doctors, pharmacists, phlebotomists and consumers under one digital ambit. This will save you from the burden of waiting in long queues, riding to a medical store.</p>
         </div>
         <div className={classes.Contactus}>
         <h2>Contact us</h2>
         <div className={classes.DivContact}>
         <div className={classes.Phone}>
             <img src={Phone} style={{height:'100px',width:'100px'}} alt='Phone Icon'/>
-            <h5>Talk to us:+91 900*****99</h5></div>
+            <p>Talk to us:+91 900*****99</p></div>
         <div className={classes.Phone}>
             <img src={Mail} style={{height:'100px',width:'100px'}} alt='Mail Icon'/>
-            <h5>MailId: medicstore.india@gmail.com</h5>
+            <p>MailId: medicstore.india@gmail.com</p>
         </div>
         <div className={classes.Phone}>
             <img src={Insta} style={{height:'100px',width:'100px'}} alt='Insta Icon'/>
-            <h5>Follow us on: medic_store</h5></div>
+            <p>Follow us on: medic_store</p></div>
         </div>
         
         </div>

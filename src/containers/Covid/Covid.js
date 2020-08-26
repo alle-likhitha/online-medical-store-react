@@ -16,7 +16,7 @@ class Covid extends Component {
             <div className={classes.Covid}>
                 {/* <p>all medicine</p> */}
                 <h2>COVID-19 MEDICINE</h2>
-                <MedicList key={'corona'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'corona'} cat='CORONAVIRUS' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

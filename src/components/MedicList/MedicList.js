@@ -15,7 +15,7 @@ console.log(Array.isArray(props.data))
     // console.log()
     // const alle = props.data.map(a => (console.log('allelalleksjhfuyg')))
     return(
-        <div className={classes.MedicListDiv}>
+        <div className={classes.MedicListDiv} key={props.key}>
              <h3 style={{padding:'0 0 0 40px', margin:0, color:'white'}}>{props.type}</h3>
             <div className={classes.MedicList}>
                 {listlist}

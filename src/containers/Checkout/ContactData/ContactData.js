@@ -7,6 +7,10 @@ import Input from '../../../ui/Input/Input';
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import {updateObject, validityCheckHandler} from '../../../hoc/Shared/utility';
+import {GrCreditCard} from 'react-icons/gr';
+import {SiGooglepay} from 'react-icons/si';
+import {FaCcAmazonPay} from 'react-icons/fa';
+import {GiPayMoney} from 'react-icons/gi';
 
 class ContactData extends Component{
 
@@ -60,7 +64,7 @@ class ContactData extends Component{
                 label:'City:'
 
             },
-            zipcode:{
+            zip:{
                 elementType:'input',
                 elementConfig:{
                     type:'text',
@@ -69,31 +73,48 @@ class ContactData extends Component{
                 value:'',
                 validation:{
                     required:true,
-                    minLength:5,
-                    maxLength:5
+                    minLength:6,
+                    maxLength:6
                 },
                 isValid:false,
                 touched:false,
                 label:'ZipCode:'
 
-            },       
-            emailid:{
+            },
+            phone:{
                 elementType:'input',
                 elementConfig:{
-                    type:'email',
-                    placeholder:'Your E-Mail'
+                    type:'text',
+                    placeholder:'Phone Number'
                 },
                 value:'',
                 validation:{
                     required:true,
-                    isEmail: true
+                    minLength:10,
+                    maxLength:10
                 },
                 isValid:false,
                 touched:false,
-                label:'Email ID:'
+                label:'Phone Number:'
 
-            },    
-            deliveryMethod:{
+            },       
+            // email:{
+            //     elementType:'input',
+            //     elementConfig:{
+            //         type:'email',
+            //         placeholder:'Your E-Mail'
+            //     },
+            //     value:'',
+            //     validation:{
+            //         required:true,
+            //         isEmail: true
+            //     },
+            //     isValid:false,
+            //     touched:false,
+            //     label:'Email ID:'
+
+            // },    
+            delivery:{
                 elementType:'select',
                 elementConfig:{
                     options:[
@@ -107,6 +128,23 @@ class ContactData extends Component{
                 value:'fastest',
                 isValid:true,
                 label:'Delivery Method:'
+            },  
+            payment:{
+                elementType:'select',
+                elementConfig:{
+                    options:[
+                        {value:'credit', displayValue:'Credit Card'},
+                        {value:'Gpay', displayValue:'G Pay'},
+                        {value:'AmazonPay', displayValue:'Amazon Pay'},
+                        {value:'COD', displayValue:'Cash On Delivery'},
+
+                    ]
+                },
+                validation:{
+                },
+                value:'credit',
+                isValid:true,
+                label:'Payment Method:'
             }    
         },
         formisvalid:false
@@ -120,15 +158,18 @@ class ContactData extends Component{
         for(let formid in this.state.orderForm){
             formData[formid]=this.state.orderForm[formid].value
         }
-        // const order={
-        //     ingredients:this.props.ings,
-        //     price:this.props.price,
-        //     orderData: formData,
-        //     userId: this.props.userId
+        const order={
+            medicines:this.props.added,
+            price:this.props.price,
+            DelivaryData: formData,
+            userid: this.props.userid
             
-        // }
+        }
+        console.log(formData)
+        console.log(this.props.added)
+        console.log(this.props.userid)
 
-        this.props.onPurchaseMedic(this.props.added,this.props.userid);
+        this.props.onPurchaseMedic(order, this.props.userid);
         
     }
 
@@ -174,7 +215,6 @@ class ContactData extends Component{
         let form =(
             // <form onSubmit={this.orderHandler}>
             <form className={classes.Form}>
-                    {/* <Input elementType='...' elementConfig='..'  value='..'></Input> */}
                     
                     {formeleArray.map(formelement=>(
                         <Input key={formelement.id}
@@ -187,8 +227,13 @@ class ContactData extends Component{
                         invalid={!formelement.config.isValid}
                         label={formelement.config.label} />
                     ))}
-
-                    <Button btntype='Success' disabled={!this.state.formisvalid}clicked={this.orderHandler}>Order</Button>
+                    <div style={{display:"flex", flexDirection:'row', justifyContent:'space-evenly'}}>
+                        <GrCreditCard size='40px'/>
+                        <SiGooglepay size='40px'/>
+                        <FaCcAmazonPay size='40px'/>
+                        <GiPayMoney size='40px'/>
+                    </div>
+                    <Button btntype='Success' disabled={!this.state.formisvalid}clicked={this.orderHandler}>Place Order</Button>
                 </form>
         )
         if(this.props.loading){
@@ -198,7 +243,7 @@ class ContactData extends Component{
 
         return(
             <div className={classes.ContactData}>
-                <h3>Enter Your Contact Data</h3>
+                <h3>Enter the Delivery Information.</h3>
                 {form}
             </div>
         );
@@ -208,9 +253,9 @@ class ContactData extends Component{
 const mapStatetoProps= state =>{
     return{
         // ings: state.burgerBuilder.ingredients,
-        added : state.cart.addedItems,
-        price: state.cart.total,
-        loading: state.cart.loading,
+        added : state.medicine.addedItems,
+        price: state.medicine.total,
+        loading: state.medicine.loading,
         userid: state.auth.userid
         // token:state.auth.tokenId,
         // userId:state.auth.userId
@@ -219,7 +264,7 @@ const mapStatetoProps= state =>{
 
 const mapDispatchtoProps= dispatch=>{
     return{
-        onPurchaseMedic :(orderData,userid)=>dispatch(actions.purchaseMedicStart())
+        onPurchaseMedic :(order,userid)=>dispatch(actions.purchaseMedic(order,userid))
     }
     
 }

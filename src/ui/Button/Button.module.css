@@ -30,10 +30,11 @@
 
 .Button:hover{
     /* margin-left: 60%; */
-    background-color: gray ;
+    /* background-color: gray ; */
+    font-weight: 700;
 }
 .Button:active{
-    background-color: gray ;
-    box-shadow: 0 5px #666;
+    /* background-color: gray ;
+    box-shadow: 0 5px #666; */
     transform: translateY(4px);
 }

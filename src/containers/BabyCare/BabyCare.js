@@ -16,7 +16,7 @@ class BabyCare extends Component {
             <div className={classes.BabyCare}>
                 {/* <p>all medicine</p> */}
                 <h2>BABY CARE</h2>
-                <MedicList key={'baby'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'baby'} cat='Baby Care' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

@@ -15,11 +15,11 @@ const MainToolbar = props =>{
         <header className={classes.MainToolbar}>
             <Aux>
             <div className={classes.Logo}>
-            <Link>
+            <Link to='/med'>
             <img src={logo} alt='Logo'/>
             </Link>
             </div>
-            <h1>Medic Store</h1>
+            <h1 style={{marginLeft:'100px'}}>MedicStore</h1>
             <Aux>
             <div className={classes.LogoM} >
             {/* <img style={{height : '50px'}}src={insta2} alt='insta'/> */}
@@ -28,7 +28,7 @@ const MainToolbar = props =>{
             <NavLink activeClassName={classes.active}to='/med/cart'>Cart</NavLink> 
             </div>
             <div className={classes.NavItem}>
-            <NavLink activeClassName={classes.active} to='/med/logout' exact >LogOut</NavLink>
+            <NavLink activeClassName={classes.active} to='/' exact >LogOut</NavLink>
             </div>
             
             </div>

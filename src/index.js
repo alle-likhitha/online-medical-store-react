@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import cartReducer from './store/reducers/cart';
+// import cartReducer from './store/reducers/cart';
 import thunk from 'redux-thunk';
 import {createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
@@ -14,7 +14,6 @@ import medicineReducer from './store/reducers/medicine';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    cart: cartReducer,
     auth: authReducer,
     medicine: medicineReducer
 });

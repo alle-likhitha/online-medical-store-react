@@ -48,6 +48,29 @@ def copyBaseDataToMongo():
 
 
 
+def test():
+    array = [    "104.5",
+    "112",
+    "132",
+    "136",
+    "1648",
+    "2.38",
+    "292.5",
+    "295",
+    "30.6",
+    "300",
+    "359.4",
+    "51",
+    "7.2",
+    "8",
+    "823.35"]
+    for d in list(dbutils.get_collection("LOGIN", "drugs").find({"Price": {"$in": array}})):
+        print(d)
+        dbutils.get_collection("LOGIN", "drugs").update_one({"_id": d["_id"]},{"$set": {"Price": float(d["Price"])}})
+
+
+
+
 if __name__ == '__main__':
-    copyBaseDataToMongo()
+    test()
 

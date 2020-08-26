@@ -41,7 +41,10 @@ package_dir = os.path.dirname(os.path.abspath(__file__))
 
 from app.UserAuth.login import mod_data as dataModule
 app.register_blueprint(dataModule, url_prefix='/login')
+from app.UserAuth.address import mod_data as dataModule
+app.register_blueprint(dataModule, url_prefix='/address')
 from app.MedicineData.medicineService import mod_data as dataModule
 app.register_blueprint(dataModule, url_prefix='/drugs')
+
 
 

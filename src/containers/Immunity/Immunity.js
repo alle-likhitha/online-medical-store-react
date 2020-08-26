@@ -16,7 +16,7 @@ class Immunity extends Component {
             <div className={classes.Immunity}>
                 {/* <p>all medicine</p> */}
                 <h2>IMMUNITY BOOSTERS</h2>
-                <MedicList key={'immunity'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'immunity'} cat='ESSENTIAL SUPPLEMENTS' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

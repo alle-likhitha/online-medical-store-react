@@ -16,7 +16,7 @@ class ColdCough extends Component {
             <div className={classes.ColdCough}>
                 {/* <p>all medicine</p> */}
                 <h2>COLD AND COUGH</h2>
-                <MedicList key={'cold'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'cold'} cat='OLD AND COUGH' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

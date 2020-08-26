@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import {updateObject} from '../../hoc/Shared/utility';
-import Aux from '../../hoc/Aux/Aux';
+// import Aux from '../../hoc/Aux/Aux';
 import Phone from '../../assets/images/Phone.png';
 import Mail from '../../assets/images/Mail.png';
 import Insta from '../../assets/images/Insta.png';
@@ -18,6 +18,10 @@ import Spinner from '../../ui/Spinner/Spinner';
 
 
 class Auth extends Component{
+    componentWillMount(){
+        //    console.log('auth component renderd')
+           this.props.onSetAuthRedirectPath();
+    }
     static navigationOptions = {
         header: null
     }
@@ -49,7 +53,7 @@ class Auth extends Component{
                 value:'',
                 validation:{
                     required:true,
-                    minLength: 7
+                    minLength: true
 
                 },
                 isValid:false,
@@ -69,7 +73,7 @@ class Auth extends Component{
             [controlName]: updateObject(this.state.controls[controlName], {
                 value:event.target.value,
                 touched:true,
-                isValid: validityCheckHandler(event.target.value, this.state.controls[controlName].validation)
+                isValid: validityCheckHandler(this.state.controls[controlName].value, this.state.controls[controlName].validation)
             })
         });
 
@@ -96,33 +100,27 @@ class Auth extends Component{
             })
            
         }
-        let form =(
-            <Aux>
+        let formdata =(
             <form >
-            {/*  <form> */}
-                    {/* <Input elementType='...' elementConfig='..'  value='..'></Input> */}
-                    
-                    {formeleArray.map(formelement=>(
-                        <Input key={formelement.id}
-                        elementType={formelement.config.elementType}
-                        elementConfig={formelement.config.elementConfig}
-                        value={formelement.config.value} 
-                        shouldValidate={formelement.config.validation}
-                        changed={(event)=> this.formChangeHandler(event, formelement.id)}
-                        touched={formelement.config.touched}
-                        invalid={!formelement.config.isValid}
-                        label={formelement.config.label} />
+                 {formeleArray.map(formelement=>(
+                    <Input key={formelement.id}
+                    elementType={formelement.config.elementType}
+                    elementConfig={formelement.config.elementConfig}
+                    value={formelement.config.value} 
+                    shouldValidate={formelement.config.validation}
+                    changed={(event)=> this.formChangeHandler(event, formelement.id)}
+                    touched={formelement.config.touched}
+                    invalid={!formelement.config.isValid}
+                    label={formelement.config.label} />
                         
                     ))}
-                    {/* disabled={!this.state.formisvalid} */}
-                    {/* <Button btntype='Success' clicked={this.submitHandler}>SUBMIT</Button> */}
+                    <Button clicked={this.submitHandler}>Submit</Button>
                 </form>
-            </Aux>
 
         )
-
+        // let Contact = 
         if (this.props.loading) {
-            form = <Spinner />
+            formdata = <Spinner />
         }
 
         let errorMessage = null;
@@ -144,15 +142,16 @@ class Auth extends Component{
                 <div className={classes.Inner}>
                 {authRedirect}
                 {errorMessage}
+                <h2>Medic Store</h2>
                     <div className={classes.Logo}>
-                    <Link>
+                    <Link to='/'>
                     <img className={classes.Img} src={logo} alt='Logo'/>
                     </Link>
                     </div>
-                <form onSubmit={this.submitHandler}>
-                    {form}
-                    <Button btnType="Success">SUBMIT</Button>
-                </form>
+                {/* <form onSubmit={this.submitHandler}> */}
+                    {formdata}
+                    {/* <Button btnType="Success">SUBMIT</Button> */}
+                {/* </form> */}
                 <Button 
                     clicked={this.switchAuthModeHandler}
                     btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>

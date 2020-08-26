@@ -30,10 +30,10 @@ export const addingmed = (data)=>{
         data:data
     }
 }
-export const removingmed = (id)=>{
+export const removingmed = (data)=>{
     return{
         type:actionTypes.REMOVE_MEDICINE_MED,
-        id : id
+        data : data
     }
 }
 export const purchaseMedicStart=()=>{
@@ -41,6 +41,37 @@ export const purchaseMedicStart=()=>{
         type:actionTypes.PURCHASE_MEDIC_START
     }
 }
+
+export const purchaseMedicSuccess = ( id, orderData ) => {
+    return {
+        type: actionTypes.PURCHASE_MEDIC_SUCCESS,
+        orderId: id,
+        orderData: orderData
+    };
+};
+
+export const purchaseMedicFail = ( error ) => {
+    return {
+        type: actionTypes.PURCHASE_MEDIC_FAIL,
+        error: error
+    };
+}
+
+
+export const purchaseMedic = ( orderData,userid) => {
+    return dispatch => {
+        console.log(orderData)
+        dispatch( purchaseMedicStart() );
+        axios.post( 'http://localhost:9000/address/add-address?user-email=' + userid, orderData )
+            .then( response => {
+                console.log(response)
+                dispatch( purchaseMedicSuccess( response.data.orderid, orderData ) );
+            } )
+            .catch( error => {
+                dispatch( purchaseMedicFail( error ) );
+            } );
+    };
+};
 
 export const fetchMedicine = (category) => {
     return dispatch => {

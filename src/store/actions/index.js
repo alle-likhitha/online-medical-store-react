@@ -20,5 +20,6 @@ export {
     fetchMedicFail,
     addingmed,
     purchaseMedicStart,
-    removingmed
+    removingmed,
+    purchaseMedic
 }from './medicine'

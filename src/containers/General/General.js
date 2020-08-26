@@ -16,7 +16,7 @@ class General extends Component {
             <div className={classes.General}>
                 {/* <p>all medicine</p> */}
                 <h2>GENERAL MEDICINE</h2>
-                <MedicList key={'general'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'general'} cat='General medicines' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

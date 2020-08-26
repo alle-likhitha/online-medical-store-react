@@ -16,7 +16,7 @@ class SkinCare extends Component {
             <div className={classes.SkinCare}>
                 {/* <p>all medicine</p> */}
                 <h2>SKIN CARE</h2>
-                <MedicList key={'skincare'} data = {this.props.items} onAddClick = {this.props.onAddList}/>
+                <MedicList key={'skincare'} cat='SKIN CARE' data = {this.props.items} onAddClick = {this.props.onAddList}/>
             </div>
         );
     }

@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const authStart = ( state, action ) => {
-    return updateObject( state, { error: null, loading: true } );
+    return updateObject( state, { error: null, loading: true, userid: null } );
 };
 
 // const authSuccess = (state, action) => {
@@ -24,6 +24,7 @@ const authStart = ( state, action ) => {
 // };
 
 const authFail = (state, action) => {
+    // debugger
     return updateObject( state, {
         error: action.error,
         loading: false
@@ -31,17 +32,28 @@ const authFail = (state, action) => {
 };
 
 const authLogout = (state, action) => {
-    return updateObject(state, { token: null, userId: null });
+    // debugger
+    const local_state=updateObject(state, { userid: null }) 
+    // debugger
+    // localStorage.removeItem('userid');
+    return local_state;
 };
 
 const setAuthRedirectPath = (state, action) => {
+    // debugger
     return updateObject(state, { authRedirectPath: action.path,
         error: null,
-        loading: false })
+        loading: false,
+        userid: action.userid })
 }
 
 const reducer = ( state = initialState, action ) => {
+    // debugger
+    console.log(action.type)
+    console.log(state)
+    console.log("-=-==--=-=")
     switch ( action.type ) {
+        
         case actionTypes.AUTH_START: return authStart(state, action);
         // case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.AUTH_FAIL: return authFail(state, action);
