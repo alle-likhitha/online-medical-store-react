@@ -26,6 +26,13 @@ def transfer_data():
 
 
 
+def  get_med_csv():
+    data = list(dbutils.get_collection("LOGIN", "drugs").find({}, {"_id": 0}))
+    df = pd.DataFrame(data)
+    df.to_csv("drugdata.csv", header=True, index=False)
+
+
+
 
 def crawler():
     base_url = "https://www.webmd.com/drugs/2/alpha/a/"
@@ -72,5 +79,5 @@ def test():
 
 
 if __name__ == '__main__':
-    test()
+    get_med_csv()
 
