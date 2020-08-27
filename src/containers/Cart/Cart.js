@@ -15,7 +15,7 @@ class Cart extends Component{
                 <CartList key={'cart'} data = {this.props.added} onAddClick = {this.props.onAddList}
                 onRemoveClick = {this.props.onRemove}/>
                 <br></br>
-                <h2>Total Price = {this.props.total}</h2>
+                <h2>Total Price = {this.props.total} Rs</h2>
                 <div className= {classes.NavItem2}>
                 <NavLink to='/med/cart/checkout'>Checkout</NavLink>
 
