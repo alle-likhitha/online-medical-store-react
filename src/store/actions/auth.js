@@ -8,13 +8,7 @@ export const authStart = () => {
     };
 };
 
-// export const authSuccess = (userId) => {
-//     return {
-//         type: actionTypes.AUTH_SUCCESS,
-//         // idToken: token,
-//         // userId: userId
-//     };
-// };
+
 
 export const authFail = (error) => {
     return {
@@ -24,9 +18,6 @@ export const authFail = (error) => {
 };
 
 export const logout = () => {
-    // localStorage.removeItem('token');
-    // localStorage.removeItem('expirationDate');
-    // localStorage.removeItem('userId');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -43,11 +34,6 @@ export const checkAuthTimeout = (expirationTime) => {
 export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
-        // const authData = {
-        //     email: email,
-        //     password: password,
-        //     returnSecureToken: true
-        // };
         const queryparams = '?email=' +email+'&password='+password
         let url = 'http://localhost:9000/login/add-new-user'+queryparams;
         if (!isSignup) {
@@ -64,9 +50,7 @@ export const auth = (email, password, isSignup) => {
                     dispatch(authFail(response.data.error));
                 }
             })
-            // .catch(err => {
-            //     console.log(err)
-            // });
+
     };
 };
 
@@ -85,20 +69,3 @@ export const setAuthRedirectPath = (path,email) => {
     };
 };
 
-// export const authCheckState = () => {
-//     return dispatch => {
-//         const token = localStorage.getItem('token');
-//         if (!token) {
-//             dispatch(logout());
-//         } else {
-//             const expirationDate = new Date(localStorage.getItem('expirationDate'));
-//             if (expirationDate <= new Date()) {
-//                 dispatch(logout());
-//             } else {
-//                 const userId = localStorage.getItem('userId');
-//                 dispatch(authSuccess(token, userId));
-//                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
-//             }   
-//         }
-//     };
-// };

@@ -17,7 +17,9 @@ const Photo = props =>{
         <div className={classes.About}>
         <h2>About Us</h2>
         <h3>Health Comes Home</h3>
-        <p style={{height:'70%', width:'80%',marginLeft:'140px',fontSize:'20px'}}>MedicStore is a holistic healthcare company that aims to make healthcare accessible and affordable in the country. In order to streamline the functioning of the health industry, we have brought doctors, pharmacists, phlebotomists and consumers under one digital ambit. This will save you from the burden of waiting in long queues, riding to a medical store.</p>
+        <p style={{height:'70%', width:'80%',marginLeft:'140px',fontSize:'20px'}}>MedicStore is a holistic healthcare company that aims to make healthcare accessible and affordable in the country. 
+        In order to streamline the functioning of the health industry, we have brought doctors, pharmacists, phlebotomists and consumers under one digital ambit.
+         This will save you from the burden of waiting in long queues, riding to a medical store.</p>
         </div>
         <div className={classes.Contactus}>
         <h2>Contact us</h2>

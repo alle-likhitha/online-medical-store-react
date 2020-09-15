@@ -46,15 +46,13 @@ class App extends Component{
         <Layout key='3' path='/med/babycare' exact component = {BabyCare} />
         <Layout key='4' path='/med/Immunity' exact component = {Immunity} />
         <Layout key='5' path='/med/general' exact component = {General} />
-        {/* <Layout key='11' path='/med/logout' exact component = {Logout} /> */}
-        {/* <Route  path='/logout' exact component= {Logout} /> */}
         <Layout key='6' path='/med/skincare' exact component = {SkinCare} />
         <Layout key='7' path='/med/cart' exact component = {Cart} />
         <Layout key='9' path='/med/cart/checkout' exact component = {Checkout} />
         <Layout key='8' path='/med' exact component={Medicstore} /> 
         <LoginLayoutRoute path="/"exact component={Auth} />  
         <Redirect to='/' />
-        {/* <Redirect to='/med' /> */}
+
       </Switch>
       </Suspense>
     )

@@ -24,17 +24,18 @@ const addingmed = (state,action) => {
     if(existed_item)
     {
         additem.quantity += 1 
-        return updateObject(state, {total: state.total + additem.Price ,purchased:false})
+        let newt = state.total + additem.Price
+        return updateObject(state, {total: newt ,purchased:false})
    }
    else{
         additem.quantity = 1;
        //calculating the total
-        let newTotal = state.total + additem.Price 
+        let newTotal = state.total + additem.Price
         console.log(newTotal)
         return updateObject(state, { addedItems: [...state.addedItems, additem], total : newTotal, purchased:false})
 
        
-   }
+   } 
 };
 
 const removingmed = (state , action)=>{
