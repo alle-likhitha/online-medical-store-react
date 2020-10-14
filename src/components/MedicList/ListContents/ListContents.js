@@ -16,7 +16,6 @@ const ListContents = props =>{
                 <div className={classes.Price}>
                 <label className={classes.Mlabel}>Name:  {props.name}</label>
                 <label >Price:  {props.price} Rs</label>
-                <label>Quantity:  {props.quantity}</label>
                 <Button  clicked={props.clicked}>Add</Button>
                 </div>
                 

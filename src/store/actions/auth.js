@@ -41,8 +41,6 @@ export const auth = (email, password, isSignup) => {
         }
         axios.get(url)
             .then(response => {
-                // reponse => data 
-                //reponse => error ->  
                 console.log(response)
                 if (response.data.data){
                     dispatch(setAuthRedirectPath('/med', email))
